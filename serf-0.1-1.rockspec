@@ -14,8 +14,6 @@ description = {
 }
 dependencies = {
   "lua >= 5.1",
-  "lua-messagepack ~> 0.3.4-1",
-  "luasocket ~> 3.0-rc1-2",
   "lua-resty-socket ~> 0.0.5-0"
 }
 build = {
