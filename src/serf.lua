@@ -119,6 +119,14 @@ function Serf:connect(address, port, timeout)
   return true
 end
 
+function Serf:set_keepalive(...)
+  if not self.socket then
+    return nil, "not initialized"
+  end
+
+  return self.socket:setkeepalive(...)
+end
+
 function Serf:close()
   self.socket:close()
 end
@@ -239,18 +247,30 @@ function Serf:stats()
 end
 
 function Serf:stream(filter, flags)
+  if not ngx then
+    return nil, "ngx context not available"
+  end
   -- TODO
 end
 
 function Serf:monitor(level, flags)
+  if not ngx then
+    return nil, "ngx context not available"
+  end
   -- TODO
 end
 
 function Serf:query(specs, flags)  
+  if not ngx then
+    return nil, "ngx context not available"
+  end
   -- TODO
 end
 
 function Serf:stop(id)
+  if not ngx then
+    return nil, "ngx context not available"
+  end
   -- TODO
 end
 
